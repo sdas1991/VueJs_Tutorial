@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400 px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-if="showBooks">
+            <p>{{ title}} - {{author}} - {{age}}</p>
+        </div>
+        <button @click="toggleshowbooks">
+            <span v-if="showBooks">Hide books</span>
+            <span v-else>Show books</span>
+        </button>
+        <div v-show="showBooks">currently showing</div>
+        <button v-on:click="age++">Increase age</button>
+        <button v-on:click="age--">Decrease age</button>
+        <div @click="changeTitle('Book title has changed')">change title</div>
+        <div>rabdom</div>
+        <br>
+        <!--mouse over events-->
+        <div class="box" @mouseover="handleEvents($event, 5)">mouse over</div>
+        <div class="box" @mousemove="handleMouseMove">mouse move - {{ x }} {{ y }}</div>
+
+    </div>    
+    
+    <script src="app.js"></script>
+</body>
+</html>
