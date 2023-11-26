@@ -7,16 +7,19 @@ const app = Vue.createApp({
                     title : 'The Final Empire',
                     author : 'Me',
                     age : '45',
+                    isFav: true
                 },
                 {
                     title : 'The Final Assassination',
                     author : 'Me kong',
                     age : '55',
+                    isFav: true
                 },
                 {
                     title : 'Harry Potter',
                     author : 'bla bla bla',
                     age : '65',
+                    isFav: false
                 }
             ],
             x : 0,
@@ -32,6 +35,11 @@ const app = Vue.createApp({
         toggleshowbooks(){
             this.showBooks=!this.showBooks;
         },
+        toggleChangeColor($event, book){
+            book.isFav = !book.isFav;
+            console.log('change color');
+            console.log(book);
+        },
         handleEvents(e, data){
             console.log('mouse over event');
             console.log(e , e.type);
@@ -42,6 +50,11 @@ const app = Vue.createApp({
         handleMouseMove(e){
             this.x = e.offsetX;
             this.y = e.offsetY;
+        }
+    },
+    computed: {
+        filteredBooks(){
+            return this.books.filter((book)=> book.isFav)
         }
     }
 })
