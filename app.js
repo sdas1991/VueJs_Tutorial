@@ -2,9 +2,23 @@ const app = Vue.createApp({
     data() {
         return {
             showBooks : true,
-            title : 'The Final Empire',
-            author : 'Me',
-            age : '45',
+            books:[
+                {
+                    title : 'The Final Empire',
+                    author : 'Me',
+                    age : '45',
+                },
+                {
+                    title : 'The Final Assassination',
+                    author : 'Me kong',
+                    age : '55',
+                },
+                {
+                    title : 'Harry Potter',
+                    author : 'bla bla bla',
+                    age : '65',
+                }
+            ],
             x : 0,
             y : 0
         }
